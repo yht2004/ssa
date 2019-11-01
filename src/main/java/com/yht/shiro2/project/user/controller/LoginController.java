@@ -5,14 +5,16 @@ import com.yht.shiro2.project.role.service.RoleService;
 import com.yht.shiro2.project.user.service.UserService;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.AuthenticationException;
+import org.apache.shiro.authc.IncorrectCredentialsException;
+import org.apache.shiro.authc.UnknownAccountException;
 import org.apache.shiro.authc.UsernamePasswordToken;
 import org.apache.shiro.subject.Subject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
-import java.util.Map;
 
 /**
  * 登陆控制器
@@ -35,20 +37,28 @@ public class LoginController {
     }
 
     @PostMapping("/login")
-    public String login(String username, String password, boolean rememnerMe, Map<String,Object> map){
-        UsernamePasswordToken token = new UsernamePasswordToken(username,password,rememnerMe);
+    public String login(String username, String password, boolean rememberMe, Model model){
+        UsernamePasswordToken token = new UsernamePasswordToken(username,password,rememberMe);
         Subject subject = SecurityUtils.getSubject();
-
-        try{
-            //执行登陆操作
+        try {
             subject.login(token);
-            //登陆成功 跳转
-            return "index";
+        }catch (IncorrectCredentialsException e){
+            model.addAttribute("msg","密码不正确");
+        }catch (UnknownAccountException e){
+            model.addAttribute("msg","账号不存在");
         }catch (AuthenticationException e){
-            String msg = "用户名或密码错误";
-
+            model.addAttribute("msg","状态不正常");
         }
-        return "index";
+        if (subject.isAuthenticated()){
+            System.out.println("认证成功");
+            model.addAttribute("currentUser",username);
+            return "index";
+        }else {
+            token.clear();
+            return "login";
+        }
+
+
     }
 
 }

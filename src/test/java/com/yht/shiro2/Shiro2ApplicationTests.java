@@ -76,4 +76,13 @@ class Shiro2ApplicationTests {
         User user = userService.selectUserByLoginName("admin");
         System.out.println(user.getLoginName());
     }
+
+    String MOBILE_PHONE_NUMBER_PATTERN = "^0{0,1}(13[0-9]|15[0-9]|14[0-9]|18[0-9])[0-9]{8}$";
+    @Test
+    void phonenumberPattern() {
+        String phonenumber = "13141196133";
+        if (!phonenumber.matches(MOBILE_PHONE_NUMBER_PATTERN)){
+            System.out.println("请输入正确的手机号");
+        }
+    }
 }
