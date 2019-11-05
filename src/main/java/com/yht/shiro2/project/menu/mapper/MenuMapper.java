@@ -7,6 +7,12 @@ import java.util.List;
 public interface MenuMapper {
 
     /**
+     * 查询全部菜单
+     * @return
+     */
+    public List<Menu> allMenus();
+
+    /**
      * 根据用户ID查询菜单
      * @param userId
      * @return

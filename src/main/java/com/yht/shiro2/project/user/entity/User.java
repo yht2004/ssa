@@ -2,10 +2,11 @@ package com.yht.shiro2.project.user.entity;
 
 import org.apache.shiro.crypto.SecureRandomNumberGenerator;
 
+import java.io.Serializable;
 import java.util.Arrays;
 import java.util.Date;
 
-public class User {
+public class User implements Serializable {
 
     private static final long serialVersionUID = 1L;
     /** 用户ID */

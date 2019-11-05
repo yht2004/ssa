@@ -11,7 +11,23 @@ import java.util.List;
  */
 public class TreeUtils {
 
+    /**
+     * 根据传入的父节点ID获取子节点
+     * @return
+     */
+    public static List<Menu> getchildren(List<Menu> list,Integer parentId){
+        List<Menu> childList = new ArrayList<>();
+        for (Iterator<Menu> it = list.iterator();it.hasNext();){
+            Menu n = (Menu) it.next();
+            if (n.getParentId() == parentId){
 
+                recursion(list,n);
+                childList.add(n);
+            }
+        }
+
+        return childList;
+    }
 
     /**
      * 获取子节点
@@ -24,7 +40,7 @@ public class TreeUtils {
         Iterator<Menu> it = list.iterator();
         while (it.hasNext()){
             Menu n = (Menu) it.next();
-            if (n.getMenuId() == t.getParentId()){
+            if (n.getMenuId().intValue() == t.getParentId().intValue()){
                 childList.add(n);
             }
         }
@@ -43,11 +59,27 @@ public class TreeUtils {
                 Iterator<Menu> it = childrenList.iterator();
                 while (it.hasNext()){
                     Menu m = (Menu) it.next();
-                    recursion(list,tchild);
+                    recursion(list,m);
                 }
             }
         }
 
+    }
+
+    public static List<Menu> getChild(Integer parentId,List<Menu> list){
+        List<Menu> childList = new ArrayList<>();
+        for (Menu m : list){
+            if (m.getParentId() == parentId){
+                childList.add(m);
+            }
+        }
+        for (Menu n : childList){
+            n.setChildren(getChild(n.getMenuId(),list));
+        }
+        if (childList.size() == 0){
+            return new ArrayList<Menu>();
+        }
+        return childList;
     }
 
     /**

@@ -19,4 +19,8 @@
 		where ur.user_id = #{userId}
     </select>
 
+    <!--查询系统全部菜单-->
+    <select id="allMenus" resultType="com.yht.shiro2.project.menu.entity.Menu">
+        select menu_id, menu_name, parent_id, order_num, url, menu_type, visible, perms, icon, create_by, create_time from sys_menu
+    </select>
 </mapper>

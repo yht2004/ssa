@@ -7,7 +7,7 @@ import org.apache.shiro.subject.Subject;
 /**
  * Shiro工具类
  */
-public class ShiroUtils {
+public class  ShiroUtils {
 
     public static Subject getSubject(){
         return SecurityUtils.getSubject();

@@ -1,5 +1,6 @@
 package com.yht.shiro2;
 
+import com.yht.shiro2.project.menu.entity.Menu;
 import com.yht.shiro2.project.menu.mapper.MenuMapper;
 import com.yht.shiro2.project.menu.service.MenuService;
 import com.yht.shiro2.project.role.entity.Role;
@@ -77,12 +78,27 @@ class Shiro2ApplicationTests {
         System.out.println(user.getLoginName());
     }
 
-    String MOBILE_PHONE_NUMBER_PATTERN = "^0{0,1}(13[0-9]|15[0-9]|14[0-9]|18[0-9])[0-9]{8}$";
+
     @Test
-    void phonenumberPattern() {
-        String phonenumber = "13141196133";
-        if (!phonenumber.matches(MOBILE_PHONE_NUMBER_PATTERN)){
-            System.out.println("请输入正确的手机号");
+    void selectMenusByUserId() {
+        List<Menu> menus = menuService.selectMenusByUserId(2);
+        for (Menu m : menus){
+            System.out.println(m.getMenuName());
         }
     }
+
+    @Test
+    void selectMenusByUserId2() {
+        List<Menu> menus = menuMapper.selectMenuByUserId(2);
+        for (Menu m : menus){
+            System.out.println(m.getMenuName());
+        }
+    }
+
+    @Test
+    void testGetMenuChild() {
+
+    }
+
+
 }

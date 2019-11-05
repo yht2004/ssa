@@ -1,7 +1,10 @@
 package com.yht.shiro2.project.user.controller;
 
+import com.yht.shiro2.framework.shiro.utils.ShiroUtils;
+import com.yht.shiro2.project.menu.entity.Menu;
 import com.yht.shiro2.project.menu.service.MenuService;
 import com.yht.shiro2.project.role.service.RoleService;
+import com.yht.shiro2.project.user.entity.User;
 import com.yht.shiro2.project.user.service.UserService;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.AuthenticationException;
@@ -14,6 +17,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+
+import java.util.List;
 
 
 /**
@@ -51,14 +56,16 @@ public class LoginController {
         }
         if (subject.isAuthenticated()){
             System.out.println("认证成功");
+            User user = userService.selectUserByLoginName(username);
+            List<Menu> menus = menuService.selectMenusByUserId(user.getUserId());
             model.addAttribute("currentUser",username);
+            model.addAttribute("menus",menus);
             return "index";
         }else {
             token.clear();
             return "login";
         }
-
-
     }
+
 
 }

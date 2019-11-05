@@ -8,6 +8,7 @@ import org.apache.shiro.session.mgt.eis.EnterpriseCacheSessionDAO;
 import org.apache.shiro.session.mgt.eis.SessionDAO;
 import org.apache.shiro.spring.security.interceptor.AuthorizationAttributeSourceAdvisor;
 import org.apache.shiro.spring.web.ShiroFilterFactoryBean;
+import org.apache.shiro.web.filter.authc.LogoutFilter;
 import org.apache.shiro.web.mgt.DefaultWebSecurityManager;
 import org.apache.shiro.web.session.mgt.DefaultWebSessionManager;
 import org.springframework.context.annotation.Bean;
@@ -40,6 +41,10 @@ public class ShiroConfig {
         return securityManager;
     }
 
+    /**
+     * 退出过滤器
+     * @return
+     */
 
 
     @Bean
@@ -48,11 +53,13 @@ public class ShiroConfig {
         shiroFilterFactoryBean.setSecurityManager(securityManager);
         Map<String,String> map = new LinkedHashMap<>();
 
+        shiroFilterFactoryBean.setLoginUrl("/login");
+
         map.put("/login","anon");
         map.put("/**","authc");
 
-        //登陆
-        shiroFilterFactoryBean.setLoginUrl("/login");
+        map.put("/logout","logout");
+
         shiroFilterFactoryBean.setFilterChainDefinitionMap(map);
 
 
