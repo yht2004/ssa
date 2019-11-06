@@ -1,5 +1,6 @@
 package com.yht.shiro2;
 
+import com.yht.shiro2.common.TreeUtils;
 import com.yht.shiro2.project.menu.entity.Menu;
 import com.yht.shiro2.project.menu.mapper.MenuMapper;
 import com.yht.shiro2.project.menu.service.MenuService;
@@ -97,6 +98,11 @@ class Shiro2ApplicationTests {
 
     @Test
     void testGetMenuChild() {
+        List<Menu> menus = menuMapper.selectMenuByUserId(2);
+        List<Menu> menuList = TreeUtils.getChild(0, menus);
+        for (Menu m : menuList){
+            System.out.println(m.getMenuName());
+        }
 
     }
 

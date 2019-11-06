@@ -55,7 +55,7 @@ public class MenuServiceImpl implements MenuService{
     public List<Menu> selectMenusByUserId(Integer userId) {
 
         List<Menu> menus = menuMapper.selectMenuByUserId(userId);
-        return TreeUtils.getchildren(menus,0);
+        return TreeUtils.getChild(0,menus);
 
     }
 

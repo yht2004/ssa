@@ -1,0 +1,39 @@
+body{
+    font-size: 16px;
+}
+
+.siderbar-collapse{
+    width: auto;
+    height: 100%;
+}
+
+.nav .fa{
+    float: right;
+}
+
+.nav-menu{
+    color: #fff;
+}
+
+.nav-header{
+    background: #1E9FFF;
+    padding: 30px 25px 25px 45px;
+}
+
+.navbar-default{
+    background-color: transparent;
+    border-color: #2f4050;
+    position: relative;
+}
+
+.navbar{
+    position: fixed;
+    width: 220px;
+    z-index: 2001;
+    height: auto;
+    background-color: #00BFFF;
+}
+
+.nav li{
+    list-style: none;
+}
