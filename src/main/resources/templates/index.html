@@ -6,7 +6,11 @@
     <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
     <link rel="stylesheet" th:href="@{/plugins/font-awesome.min.css}">
     <link rel="stylesheet" th:href="@{/css/yht/style.css}">
-
+    <style>
+        .main{
+            color: red;
+        }
+    </style>
 </head>
 <body class="fixed-sidebar full-height-layout gray-bg" style="overflow: hidden">
     <div id="wrapper">
@@ -37,8 +41,8 @@
                                 <span class="fa fa-angle-right"></span>
                             </a>
                             <ul class="nav nav-second-level">
-                                <li class="active">
-                                    <a class="menuItem" th:href="@{/main}">概况</a>
+                                <li class="active" >
+                                    <a class="menuItem" th:href="@{/main}" target="menuFrame">概况</a>
                                 </li>
                             </ul>
                         </li>
@@ -51,7 +55,7 @@
                             <span></span>
                             <ul class="nav nav-second-level">
                                 <li th:each="cmenu : ${menu.children}">
-                                    <a href="" th:text="${cmenu.menuName}"></a>
+                                    <a class="menuItem" th:href="@{${cmenu.url}}" th:text="${cmenu.menuName}"></a>
                                 </li>
                             </ul>
                         </li>
@@ -73,11 +77,15 @@
                     </div>
                 </nav>
             </div>
-            <div class="row content-tabs">
-
+            <div class="row content-tabs" style="margin-top: 60px;margin-left: 12px">
+                <input type="text" class="in" value="hello girl"><br>
+                <input type="button" class="btn" value="点击触发input的select事件">
+                <p>测试</p><br>
+                <input type="button" class="btn1" value="设置p标签的mian类">
+                <input type="button" class="btn2" value="显示">
             </div>
             <div class="row mainContent" id="content-main">
-                <iframe class="yht_iframe" name="iframe0" width="100%" height="100%" th:src="@{/main}" frameborder="0" seamless></iframe>
+                <iframe class="yht_iframe" id="menuFrame" th:src="@{/main}" scrolling="yes" frameborder="no" name="menuFrame" width="100%" height="100%"></iframe>
             </div>
             <div class="footer"></div>
         </div>
@@ -86,5 +94,21 @@
     <script th:src="@{/js/bootstrap.min.js}"></script>
     <script th:src="@{/js/plugins/metisMenu/jquery.metisMenu.js}"></script>
     <script th:src="@{/js/index.js}"></script>
+    <script>
+        $(function () {
+            $('.in').select(function () {
+                $(this).after("文本被选中");
+            })
+
+            $('.btn').click(function () {
+                $('.in').trigger('select');
+            })
+
+            $('.btn1').click(function () {
+                $('p').toggleClass("main");
+                $(this).hide();
+            })
+        })
+    </script>
 </body>
 </html>
