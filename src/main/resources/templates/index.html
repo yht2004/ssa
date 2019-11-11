@@ -5,6 +5,7 @@
     <title>Title</title>
     <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
     <link rel="stylesheet" th:href="@{/plugins/font-awesome.min.css}">
+    <link rel="stylesheet" th:href="@{/css/animate.css}">
     <link rel="stylesheet" th:href="@{/css/yht/style.css}">
     <style>
         .main{
@@ -15,23 +16,30 @@
 <body class="fixed-sidebar full-height-layout gray-bg" style="overflow: hidden">
     <div id="wrapper">
         <!--左侧导航-->
-        <nav class="navbar navbar-default navbar-static-side">
-            <div class="navbar-default sidebar" role="navigation">
-                <div class="sidebar-nav navbar-collapse">
+        <nav class="navbar-default navbar-static-side" role="navigation">
+                <div class="navbar-collapse">
                     <ul class="nav" id="side-menu">
                         <li class="nav-header">
-                        <span class="logo-lg">
-                            <img src="/img/jiansheng.jpg" alt="[Yanght]">
-                        </span>
-                            <div>
-                            <span>
-                            <span>
-                            <strong>尤涅若</strong>
-                        </span>
-                        <span>
-                            <strong>研发部</strong>
-                        </span>
-                        </span>
+                            <div class="dropdown profile-element">
+                                <span>
+                                    <img src="/img/jiansheng.jpg" alt="[Yanght]" class="img-circle" height="60" width="60">
+                                </span>
+                                <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+                                        <span class="clear">
+                                            <span class="block m-t-xs">
+                                                <strong class="font-bold">杨宏涛</strong>
+                                            </span>
+                                            <span class="text-muted text-xs block">
+                                                <span>测试部门</span>
+                                                <b class="caret"></b>
+                                            </span>
+                                        </span>
+                                </a>
+                                <ul class="dropdown-menu animated fadeInRight m-t-xs">
+                                    <li><a href="#">个人信息</a></li>
+                                    <li class="divider"></li>
+                                    <li><a href="">退出</a></li>
+                                </ul>
                             </div>
                         </li>
                         <li class="active">
@@ -61,7 +69,6 @@
                         </li>
                     </ul>
                 </div>
-            </div>
         </nav>
         <!--右侧部分-->
         <div id="page-wrapper" class="gray-bg dashboard-1">
@@ -93,6 +100,7 @@
     <script th:src="@{/yht/js/jquery-2.1.1.min.js}"></script>
     <script th:src="@{/js/bootstrap.min.js}"></script>
     <script th:src="@{/js/plugins/metisMenu/jquery.metisMenu.js}"></script>
+    <script th:src="@{/js/plugins/slimscroll/jquery.slimscroll.min.js}"></script>
     <script th:src="@{/js/index.js}"></script>
     <script>
         $(function () {
@@ -106,7 +114,6 @@
 
             $('.btn1').click(function () {
                 $('p').toggleClass("main");
-                $(this).hide();
             })
         })
     </script>

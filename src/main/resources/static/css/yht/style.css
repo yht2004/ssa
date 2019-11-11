@@ -21,7 +21,7 @@ body{
 }
 
 .nav>li>a:hover , .nav>li>a:focus{
-    background: lightskyblue;
+    background: #38c1ff;
     color: #fff;
 }
 
@@ -40,7 +40,7 @@ body{
 
 
 
-.navbar {
+.navbar-static-side {
     position: fixed;
     width: 220px;
     z-index: 2001;
@@ -56,6 +56,7 @@ body{
 
 #page-wrapper{
     padding: 0 15px;
+    position: inherit;
     margin: 0 0 0 220px;
 }
 .navbar-static-top{
@@ -71,3 +72,46 @@ body{
     margin-right: 15px;
     float: left;
 }
+
+
+.mini-navbar .navbar-static-side{
+    width: 70px;
+}
+
+body .mini-navbar #page-wrapper{
+    margin: 0 0 0 70px;
+}
+
+.mini-navbar .navbar-default .nav>li.nav-second-level li a{
+    font-size: 12px;
+    border-radius: 0 2px 2px 0;
+}
+
+.mini-navbar .nav-second-level li a{
+    padding: 10px 10px 10px 15px;
+}
+
+.mini-navbar li.active .nav-second-level{
+    left: 65px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
