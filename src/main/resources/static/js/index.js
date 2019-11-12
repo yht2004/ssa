@@ -4,11 +4,18 @@ $(function () {
 
     //固定菜单栏
     $(function () {
-        $(".sidebar-collapse").slimScroll({
+        $(".siderbar-collapse").slimScroll({
             height: '100%',
             railOpacity: 0.9,
             alwaysVisible:false
         });
+    })
+
+
+    $('#side-menu li').click(function () {
+        if ($('body').hasClass('mini-navbar')){
+            NavToggle();
+        }
     })
 
     //菜单切换

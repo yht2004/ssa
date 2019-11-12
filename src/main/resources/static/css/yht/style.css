@@ -16,6 +16,22 @@ body{
     padding: 30px 25px 25px 45px;
 }
 
+dropdown-toggle{
+    font-size: 12px;
+    color: #fff;
+    margin-top: 10px;
+    margin-left: 10px;
+    list-style: none;
+}
+
+.text-muted{
+    color: #fff;
+}
+
+strong{
+    color: #fff;
+}
+
 .nav li ul{
     background: lightskyblue;
 }
@@ -62,6 +78,7 @@ body{
 .navbar-static-top{
     background: lightskyblue;
     width: 100%;
+    margin-bottom: 2px;
 }
 .fa-bars{
     margin-top: 18px;
@@ -73,12 +90,25 @@ body{
     float: left;
 }
 
+body.fixed-sidebar.mini-navbar .nav li:hover>.nav-second-level, .mini-navbar .nav li:focus>.nav-second-level{
+    display: block;
+    border-radius: 0 2px 2px 0;
+    min-width: 140px;
+    height: auto;
+}
+
+.fixed-sidebar.mini-navbar .nav li:hover>.nav-second-level, .fixed-sidebar.mini-navbar .nav li:hover>a>span.nav-label{
+    position: absolute;
+    left: 70px;
+    display: block;
+}
+
 
 .mini-navbar .navbar-static-side{
     width: 70px;
 }
 
-body .mini-navbar #page-wrapper{
+body.mini-navbar #page-wrapper{
     margin: 0 0 0 70px;
 }
 
@@ -95,12 +125,52 @@ body .mini-navbar #page-wrapper{
     left: 65px;
 }
 
+body.mini-navbar .nav-label, body.mini-navbar .navbar-default .nav li a span{
+    display: none;
+}
+
+.mini-navbar .profile-element span{
+    margin-left: -50px;
+}
+
+.mini-navbar .nav li>.nav-second-level{
+    display: none;
+}
+
+.mini-navbar .nav-header{
+    padding-right: 10px;
+    background: #3a3f51;
+}
+
+.side-message{
+    margin-top: 18px;
+    margin-left: 90%;
+}
 
 
+/*菜单tab*/
+.content-tabs{
+    border-bottom: solid 2px #39aef5;
+    position: relative;
+    height: 42px;
+    background: #fafafa;
+    line-height: 40px;
+}
 
+.content-tabs .roll-left{
+    left: 0;
+    border-right: solid 1px #eee;
+}
 
-
-
+.content-tabs .roll-nav{
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    text-align: center;
+    color: #999;
+    z-index: 2;
+    top: 0;
+}
 
 
 
