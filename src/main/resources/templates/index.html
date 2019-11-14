@@ -45,7 +45,7 @@
                         <li class="active">
                             <a href="index.html">
                                 <i class="glyphicon glyphicon-home"></i>
-                                <span class="nav-label">主页</span>
+                                <span class="nav-label">首页</span>
                                 <span class="fa fa-angle-right"></span>
                             </a>
                             <ul class="nav nav-second-level">
@@ -83,15 +83,26 @@
                     </div>
                 </nav>
             </div>
-            <div class="row content-tabs" style="margin-top: 1px">
+            <div class="row content-tabs">
                 <button class="roll-nav roll-left tabLeft">
                     <i class="fa fa-backward"></i>
                 </button>
+                <button class="roll-nav roll-right tabRight">
+                    <i class="fa fa-forward"></i>
+                </button>
+                <div class="btn-group roll-nav roll-right">
+                    <button class="dropdown J_tabClose" data-toggle="dropdown">
+                        页签操作<span class="caret"></span>
+                    </button>
+                </div>
+                <a href="#" class="roll-nav roll-right tabReload" style="width: 60px"><i class="fa fa-refresh"></i>刷新</a>
             </div>
             <div class="row mainContent" id="content-main">
                 <iframe class="yht_iframe" id="menuFrame" th:src="@{/main}" scrolling="yes" frameborder="no" name="menuFrame" width="100%" height="100%"></iframe>
             </div>
-            <div class="footer"></div>
+            <div class="footer">
+                <div class="copy-right">@ 2019 Copyright </div>
+            </div>
         </div>
     </div>
     <script th:src="@{/yht/js/jquery-2.1.1.min.js}"></script>
@@ -100,19 +111,7 @@
     <script th:src="@{/js/plugins/slimscroll/jquery.slimscroll.min.js}"></script>
     <script th:src="@{/js/index.js}"></script>
     <script>
-        $(function () {
-            $('.in').select(function () {
-                $(this).after("文本被选中");
-            })
 
-            $('.btn').click(function () {
-                $('.in').trigger('select');
-            })
-
-            $('.btn1').click(function () {
-                $('p').toggleClass("main");
-            })
-        })
     </script>
 </body>
 </html>

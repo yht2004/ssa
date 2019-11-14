@@ -60,7 +60,7 @@ strong{
     position: fixed;
     width: 220px;
     z-index: 2001;
-    height: auto;
+    height: 100%;
     color: #a6a8b1;
     background-color: #3a3f51;
 }
@@ -78,7 +78,7 @@ strong{
 .navbar-static-top{
     background: lightskyblue;
     width: 100%;
-    margin-bottom: 2px;
+    margin-bottom: 0;
 }
 .fa-bars{
     margin-top: 18px;
@@ -155,10 +155,18 @@ body.mini-navbar .nav-label, body.mini-navbar .navbar-default .nav li a span{
     height: 42px;
     background: #fafafa;
     line-height: 40px;
+    margin-top: 0;
 }
 
 .content-tabs .roll-left{
+    border-top: 0;
+    background: #fff;
     left: 0;
+    border-right: solid 1px #eee;
+}
+
+.content-tabs .roll-right{
+    border-top: 0;
     border-right: solid 1px #eee;
 }
 
@@ -170,15 +178,69 @@ body.mini-navbar .nav-label, body.mini-navbar .navbar-default .nav li a span{
     color: #999;
     z-index: 2;
     top: 0;
+    border-bottom: #30aef5;
+}
+
+.roll-right.tabRight{
+    background: #fff;
+    right: 140px;
+}
+
+.roll-right.btn-group{
+    right: 60px;
+    width: 80px;
+    padding: 0;
+}
+
+.btn-group.roll-right button{
+    background: #fff;
+    font-size: 13px;
+    margin-left: 0;
+    margin-bottom: 0;
+    height: 40px;
+    border-bottom: solid 1px #eee;
+}
+
+.tabReload{
+    font-size: 13px;
+    height: 40px;
+    width: 60px;
+    right: 0;
+}
+
+.J_tabClose{
+    border-left-width: 0px;
+    border-top-width: 0px;
+    border-right-width: 0px;
+}
+
+#content-main{
+    height: 100%;
+    overflow: hidden;
 }
 
 
 
 
 
+.footer{
 
+    background: none repeat scroll 0 0 white;
+    border-top: 1px solid #e7eaec;
+    overflow: hidden;
+    padding: 10px 20px;
+    margin: 0 -19px;
+    height: 36px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
 
-
+.footer .copy-right{
+    right: 100px;
+    margin-bottom: 3px;
+    font-size: 13px;
+}
 
 
 

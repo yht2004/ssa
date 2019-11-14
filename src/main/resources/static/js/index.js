@@ -60,6 +60,12 @@ $(function () {
         if (!$(this).attr('data-index'));
         $(this).attr('data-index',index);
     })
+
+
 })
 
 
+//iframe高度调整
+var oIframe = window.top.document.getElementById("menuFrame");
+var oBody = document.getElementsByTagName("body")[0];
+oIframe.style.height = oBody.offsetHeight + 580 + 'px';
