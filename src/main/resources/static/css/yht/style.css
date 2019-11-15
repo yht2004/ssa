@@ -220,6 +220,29 @@ body.mini-navbar .nav-label, body.mini-navbar .navbar-default .nav li a span{
 }
 
 
+.page-tabs{
+    margin-left: 40px;
+    height: 40px;
+    width: 100000px;
+    overflow: hidden;
+}
+
+.page-tabs a.active{
+    background: #39aef5;
+    color: #fff;
+}
+
+.page-tabs a{
+    display: block;
+    float: left;
+    border-right: solid 1px #eee;
+    padding: 0 15px;
+    font-size: 12px;
+}
+
+.dropdown-menu{
+    font-size: 13px;
+}
 
 
 
