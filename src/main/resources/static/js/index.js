@@ -169,9 +169,9 @@ $(function () {
 
     function menuItem() {
         //获取标识数据
-        var dataUrl = $(this).attr('href')
-        dataIndex = $(this).data('index')
-        menuName = $.trim($(this).text())
+        var dataUrl = $(this).attr('href'),
+        dataIndex = $(this).data('index'),
+        menuName = $.trim($(this).text()),
         flag = true;
         if (dataUrl == undefined || $.trim(dataUrl).length == 0) return false;
 
@@ -179,12 +179,12 @@ $(function () {
         $('.menuTab').each(function () {
             if ($(this).data('id') == dataUrl){
                 if (!$(this).hasClass('active')){
-                    $(this).addClass('active').sibling('.menuTab').removeClass('active');
+                    $(this).addClass('active').siblings('.menuTab').removeClass('active');
                     scrollToTab(this)
                     //显示tab对应的内容区
                     $('.mainContent .yht_iframe').each(function () {
                         if ($(this).data('id') == dataUrl){
-                            $(this).show().sibling('.yht_iframe').hide();
+                            $(this).show().siblings('.yht_iframe').hide();
                             return false;
                         }
                     });
@@ -199,14 +199,17 @@ $(function () {
         if(flag){
             var str = '<a href="javascript:;" class="active menuTab" data-id="' + dataUrl + '">' + menuName + '<i class="fa fa-times-circle"></i></a>';
             $('.menuTab').removeClass('active');
-        }
-        //添加选项卡对应的iframe
-        var str1 = '<frame class="yht_iframe" name="iframe' + dataIndex + '" width="100%" height="100%" src="' + dataUrl + '" frameborder="0" data-id="' + dataUrl + '" seamless></frame>';
-        $('.mainContent').find('iframe.yht_iframe').hide().parents('.mainContent').append(str1);
 
-        //添加选项卡
-        $('.menuTabs .page-tabs-content').append(str);
-        scrollToTab($('.menuTab.active'));
+            //添加选项卡对应的iframe
+            var str1 = '<iframe class="yht_iframe" name="iframe' + dataIndex + '" width="100%" height="100%" src="' + dataUrl +
+                '" frameborder="0" data-id="' + dataUrl + '" seamless></iframe>';
+            $('.mainContent').find('iframe.yht_iframe').hide().parents('.mainContent').append(str1);
+
+            //添加选项卡
+            $('.menuTabs .page-tabs-content').append(str);
+            scrollToTab($('.menuTab.active'));
+        }
+
 
         return false;
     }
