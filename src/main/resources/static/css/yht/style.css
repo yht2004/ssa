@@ -242,6 +242,10 @@ body.mini-navbar .nav-label, body.mini-navbar .navbar-default .nav li a span{
     overflow: hidden;
 }
 
+.page-tabs-content{
+    float: left;
+}
+
 .page-tabs a.active{
     background: #39aef5;
     color: #fff;
